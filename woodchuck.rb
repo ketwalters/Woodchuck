@@ -1,16 +1,17 @@
 class Woodchuck
-	attr_accessor :chuck_count #everything in red belongs to instance /object
-	#@@woodchuck_count = 0
+	attr_accessor :chuck_count 
+	
+	@@woodchuck_count = 0
 	WOODCHUCKS = []
 	
 	def initialize
 		@chuck_count = 0
-		#@@woodchuck_count += 1
+		@@woodchuck_count += 1
 		WOODCHUCKS << self
 	end
 
 	def chuck_wood
-		chuck_count += 1
+		@chuck_count += 1
 	end
 
 	def what_is_self
@@ -26,18 +27,20 @@ class Woodchuck
 	end
 end
 
-#my_woodchuck = Woodchuck.new
 
-woodchucks = []
-rand(1..20).times.each do |wc|
-wc = Woodchuck.new
-woodchucks << wc
+rand(20).times do
+	Woodchuck.new
 end
 
 Woodchuck::WOODCHUCKS.each do |woodchuck|
-	woodchuck.chuck_wood
-end
+	rand(20).times do
+		woodchuck.chuck_wood
+	end
+end		
 
+
+
+#my_woodchuck = Woodchuck.new
 
 #puts my_woodchuck.chuck_count
 
@@ -58,15 +61,18 @@ end
 #my_woodchuck2 = Woodchuck.new
 #my_woodchuck3 = Woodchuck.new
 
-#puts Woodchuck::WOODCHUCK.inspect
+#Woodchuck::WOODCHUCKS.inspect
 #Woodchuck::WOODCHUCK << "woodchuck"
-#puts Woodchuck::WOODCHUCK.inspect
+#Woodchuck::WOODCHUCKS.inspect
 
-#puts Woodchuck::WOODCHUCKS
+#Woodchuck::WOODCHUCKS
 
 #Woodchuck::WOODCHUCKS.each do |woodchuck|
 #	woodchuck.chuck_wood
 #end
 
 #puts Woodchuck::WOODCHUCKS.inspect
+
+#if you are in instance method then self is referring to the instance of the class
+#every other time it is referring to the class 
 
